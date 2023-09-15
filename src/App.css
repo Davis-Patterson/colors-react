@@ -56,7 +56,7 @@ h1 {
 
 button {
   border-radius: 8px;
-  border: 2px solid #ffffff;
+  border: 1px solid #ffffff;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
@@ -64,7 +64,7 @@ button {
   background-color: #ffffff;
   cursor: pointer;
   transition: border-color 0.25s;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, .4);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .4);
 }
 button:hover {
   border-color: #cfd1ff;
@@ -105,15 +105,32 @@ button:active {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+  flex-direction: column;
+  /* height: 80vh; */
+}
+
+.containerColumn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 50%;
+  width: 90%;
 }
 
 .colorContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80%;
-  height: 100vh;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .textBox {
@@ -121,30 +138,64 @@ button:active {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 10px;
+  height: 70px;
+  width: 100%;
 }
 
 .colorButton {
-  width: 50%;
+  width: 20px;
 }
 
 .colorBox {
-  height: 80%;
-  width: 20%;
+  height: 75vh;
+  width: 25%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.colorText {
+.colorName {
+  font-family: "Avant Garde", sans-serif;
+  font-size: .9em;
+  font-weight: bolder;
+  line-height: .8;
+  color: #ffffff;
+  width: 100%;
+  margin: 5px;
+  text-shadow: 0 0 5px rgba(0, 0, 0, .4);
+}
+
+.colorHex {
   font-family: "Avant Garde", sans-serif;
   font-size: 1.2em;
-  font-weight: bolder;
+  font-weight: bold;
   font-style: italic;
   line-height: .8;
   color: #ffffff;
   width: 100%;
   margin: 0;
-  margin-top: 35px;
-  margin-bottom: 20px;
-  text-shadow: 0 0 8px rgba(0, 0, 0, 1);
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-shadow: 0 0 5px rgba(0, 0, 0, .4);
+}
+
+.backButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Avant Garde", sans-serif;
+  font-size: 1em;
+  font-weight: 900;
+  font-style: italic;
+  line-height: .8;
+  color: #14b9de;
+  height: 40px;
+}
+
+button:disabled {
+  color: lightgray;
+  background-color: #25252546;
+  opacity: 0.5;
+  cursor: not-allowed;
 }
