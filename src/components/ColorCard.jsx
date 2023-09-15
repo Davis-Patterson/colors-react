@@ -12,9 +12,17 @@ const ColorCard = ({
   const [prevColor, setPrevColor] = useState('');
   const [colorName, setColorName] = useState('');
   const [isLocked, setIsLocked] = useState(false);
+  const [isHues, setIsHues] = useState(false);
 
   const handleButton = (event) => {
     setIsLocked(!isLocked);
+    event.stopPropagation();
+  };
+
+  const handleHueChange = () => {};
+
+  const hueToggle = (event) => {
+    setIsHues(!isHues);
     event.stopPropagation();
   };
 
@@ -34,7 +42,7 @@ const ColorCard = ({
       const nearestColor = matchList[1];
       setColorName(nearestColor);
     }
-  }, [randomColor, showPrev, isLocked]);
+  }, [curColor, colorChangeTrigger, showPrev]);
 
   useEffect(() => {
     if (!isLocked) {
@@ -48,22 +56,39 @@ const ColorCard = ({
 
   return (
     <>
-      <div
-        className='colorBox'
-        style={{ backgroundColor: curColor }}
-        onClick={toggleColorChangeTrigger}
-      >
-        <div className='textContainer'>
-          <div className='textBox'>
-            <p className='colorName'>{colorName}</p>
-            <p className='colorHex'>{curColor}</p>
-          </div>
+      {isHues ? (
+        <div
+          className='colorBox'
+          style={{ backgroundColor: { prevColor } }}
+          onClick={handleHueChange}
+        >
           <button
-            className={`colorButton ${isLocked && 'locked'}`}
-            onClick={(event) => handleButton(event)}
+            className='hueButton'
+            onClick={(event) => hueToggle(event)}
           ></button>
         </div>
-      </div>
+      ) : (
+        <div
+          className='colorBox'
+          style={{ backgroundColor: curColor }}
+          onClick={toggleColorChangeTrigger}
+        >
+          <div className='textContainer'>
+            <div className='textBox'>
+              <p className='colorName'>{colorName}</p>
+              <p className='colorHex'>{curColor}</p>
+            </div>
+            <button
+              className={`colorButton ${isLocked && 'locked'}`}
+              onClick={(event) => handleButton(event)}
+            ></button>
+            <button
+              className='hueButton'
+              onClick={(event) => hueToggle(event)}
+            ></button>
+          </div>
+        </div>
+      )}
     </>
   );
 };

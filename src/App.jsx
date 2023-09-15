@@ -8,6 +8,7 @@ function App() {
   const [colorChangeTrigger, setColorChangeTrigger] = useState(0);
   const [showPrev, setShowPrev] = useState(false);
   const [isPrev, setIsPrev] = useState(false);
+  const [numColors, setNumColors] = useState(5);
 
   function getRandomColor() {
     return (
@@ -28,13 +29,17 @@ function App() {
     setShowPrev(!showPrev);
   };
 
+  const handleInputChange = (e) => {
+    setNumColors(e);
+  };
+
   return (
     <>
       <Header />
       <div className='container'>
         <div className='containerColumn'>
           <div className='colorContainer'>
-            {[1, 2, 3, 4, 5].map((index) => (
+            {[...Array(numColors).keys()].map((index) => (
               <ColorCard
                 key={index}
                 getRandomColor={getRandomColor}
@@ -49,6 +54,7 @@ function App() {
             handlePrev={handlePrev}
             showPrev={showPrev}
             isPrev={isPrev}
+            handleInputChange={handleInputChange}
           />
         </div>
       </div>
