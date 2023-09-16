@@ -267,6 +267,7 @@ input:active {
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  position: relative;
 }
 
 .textContainer {
@@ -298,9 +299,9 @@ input:active {
   font-family: "Avant Garde", sans-serif;
   font-weight: 600;
   color: var(--clr-light);
-
+  position: absolute;
+  bottom: 227px;
   font-size: 1.5em;
-  margin-bottom: 112px;
   cursor: pointer;
 }
 
