@@ -9,7 +9,7 @@ const Nav = ({ handlePrev, showPrev, isPrev, handleInputChange }) => {
           type='number'
           className='numInput'
           name='Go'
-          min='2'
+          min='1'
           max='10'
           defaultValue={5}
           onChange={(e) => handleInputChange(parseInt(e.target.value, 10))}

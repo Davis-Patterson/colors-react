@@ -191,7 +191,7 @@ button:disabled {
 
 .colorBox {
   height: 88vh;
-  width: 25%;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
