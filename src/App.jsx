@@ -62,6 +62,7 @@ function App() {
         isPrev={isPrev}
         handleInputChange={handleInputChange}
         handleDark={handleDark}
+        isDarkMode={isDarkMode}
       />
       <div className='container'>
         <div className='settingsContainer'>

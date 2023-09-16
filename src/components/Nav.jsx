@@ -1,4 +1,10 @@
-const Nav = ({ handlePrev, showPrev, handleInputChange, handleDark }) => {
+const Nav = ({
+  handlePrev,
+  showPrev,
+  handleInputChange,
+  handleDark,
+  isDarkMode,
+}) => {
   return (
     <>
       <div className='navBar'>
@@ -14,8 +20,11 @@ const Nav = ({ handlePrev, showPrev, handleInputChange, handleDark }) => {
           defaultValue={5}
           onChange={(e) => handleInputChange(parseInt(e.target.value, 10))}
         ></input>
-        <p className='darkInput' onClick={handleDark}>
-          ☼
+        <p
+          className={isDarkMode ? 'darkInput' : 'lightInput'}
+          onClick={handleDark}
+        >
+          {isDarkMode ? '○' : '☼'}
         </p>
       </div>
     </>

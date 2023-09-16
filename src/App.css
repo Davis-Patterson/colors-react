@@ -230,7 +230,7 @@ button:disabled {
   padding-left: 25px;
 }
 
-.darkInput {
+.lightInput {
   transform: scale(220%);
   display: flex;
   justify-content: center;
@@ -238,7 +238,6 @@ button:disabled {
   font-family: "Avant Garde", sans-serif;
   font-size: 1em;
   font-weight: 900;
-  font-style: italic;
   line-height: .8;
   color: var(--clr-text);
   height: 40px;
@@ -246,12 +245,36 @@ button:disabled {
   padding-top: 2px;
   cursor: pointer;
 }
-.darkInput:hover {
+.lightInput:hover {
   transform: scale(250%);
   transition: transform 0.2s;
 }
-.darkInput:active {
+.lightInput:active {
   transform: scale(215%);
+  transition: transform 0.2s;
+}
+
+.darkInput {
+  transform: scale(160%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Avant Garde", sans-serif;
+  font-size: 1em;
+  font-weight: 900;
+  line-height: .8;
+  color: var(--clr-text);
+  height: 40px;
+  border-radius: 0;
+  padding-top: 1px;
+  cursor: pointer;
+}
+.darkInput:hover {
+  transform: scale(190%);
+  transition: transform 0.2s;
+}
+.darkInput:active {
+  transform: scale(140%);
   transition: transform 0.2s;
 }
 
