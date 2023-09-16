@@ -62,10 +62,15 @@ const ColorCard = ({
           style={{ backgroundColor: prevColor }}
           onClick={handleHueChange}
         >
-          <button
-            className='hueButton'
-            onClick={(event) => hueToggle(event)}
-          ></button>
+          <div className='textContainer'>
+            <p
+              className='hueButton2'
+              style={{ color: curColor }}
+              onClick={(event) => hueToggle(event)}
+            >
+              H
+            </p>
+          </div>
         </div>
       ) : (
         <div
@@ -74,10 +79,13 @@ const ColorCard = ({
           onClick={toggleColorChangeTrigger}
         >
           <div className='textContainer'>
-            <button
+            <p
               className='hueButton'
+              style={{ color: curColor }}
               onClick={(event) => hueToggle(event)}
-            ></button>
+            >
+              H
+            </p>
             <button
               className={`colorButton ${isLocked && 'locked'}`}
               onClick={(event) => handleButton(event)}

@@ -123,6 +123,30 @@ button:active, input:active {
   border-right: 1px solid #d6d7db;
 }
 
+.hueButton, .hueButton2 {
+  font-family: "Avant Garde", sans-serif;
+  font-size: .8em;
+  font-weight: 300;
+  color: white; 
+  border: 1px solid white; 
+  background-color: white;
+  width: 20px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.hueButton2 {
+  margin-bottom: 106px;
+}
+.hueButton:hover, .hueButton2:hover{
+  border-color: #cfd1ff;
+  background-color: #ffffff93;
+}
+.hueButton:active, .hueButton2:hover {
+  transform: scale(99%);
+  background-color: #bebebe6f;
+  /* box-shadow: inset  0 2px 3px rgba(0, 0, 0, 0.5); */
+}
+
 button:disabled {
   color: lightgray;
   background-color: #25252546;
