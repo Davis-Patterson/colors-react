@@ -29,7 +29,6 @@ const ColorCard = ({
     var usePound = false;
     if (col[0] == '#') {
       col = col.slice(1);
-      usePound = true;
     }
 
     var num = parseInt(col, 16);
@@ -49,15 +48,43 @@ const ColorCard = ({
     if (g > 255) g = 255;
     else if (g < 0) g = 0;
 
-    return (usePound ? '#' : '') + (g | (b << 8) | (r << 16)).toString(16);
+    return '#' + (g | (b << 8) | (r << 16)).toString(16);
   }
+
+  const generateHues = () => {
+    const hues = [];
+    const numHues = 10; // Number of lighter and darker hues to generate
+
+    // Generate darker hues
+    for (let i = numHues; i > 0; i--) {
+      const darkerHue = LightenDarkenColor(curColor, -i * 10);
+      hues.push(darkerHue);
+    }
+
+    // Add the current color (original color)
+    hues.push(curColor);
+
+    // Generate lighter hues
+    for (let i = 1; i <= numHues; i++) {
+      const lighterHue = LightenDarkenColor(curColor, i * 10);
+      hues.push(lighterHue);
+    }
+    // console.log(hues);
+    return hues;
+  };
+
+  const huesArray = generateHues();
 
   const handleButton = (event) => {
     setIsLocked(!isLocked);
     event.stopPropagation();
   };
 
-  const handleHueChange = () => {};
+  const handleHueChange = (hue) => {
+    console.log('hue clicked: ', hue);
+    setCurColor(hue);
+    setIsHues(false);
+  };
 
   const hueToggle = (event) => {
     setIsHues(!isHues);
@@ -100,16 +127,20 @@ const ColorCard = ({
   return (
     <>
       {isHues ? (
-        <div
-          className='colorBox'
-          style={{ backgroundColor: prevColor }}
-          onClick={handleHueChange}
-        >
-          <div className='textContainer'>
+        <div className='colorsContainer'>
+          <div className='iconContainer'>
             <p className='hueButton2' onClick={(event) => hueToggle(event)}>
               ↕
             </p>
           </div>
+          {huesArray.map((hue, index) => (
+            <div
+              key={index}
+              className='colorsBox'
+              style={{ backgroundColor: hue }}
+              onClick={() => handleHueChange(hue)}
+            ></div>
+          ))}
         </div>
       ) : (
         <div
