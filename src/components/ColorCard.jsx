@@ -59,7 +59,7 @@ const ColorCard = ({
       {isHues ? (
         <div
           className='colorBox'
-          style={{ backgroundColor: { prevColor } }}
+          style={{ backgroundColor: prevColor }}
           onClick={handleHueChange}
         >
           <button

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Header from 'components/Header';
 import ColorCard from 'components/ColorCard';
-import ColorInputs from 'components/ColorInputs';
+import Nav from 'components/Nav';
 import './App.css';
 
 function App() {
@@ -36,6 +36,12 @@ function App() {
   return (
     <>
       <Header />
+      <Nav
+        handlePrev={handlePrev}
+        showPrev={showPrev}
+        isPrev={isPrev}
+        handleInputChange={handleInputChange}
+      />
       <div className='container'>
         <div className='containerColumn'>
           <div className='colorContainer'>
@@ -50,12 +56,6 @@ function App() {
               />
             ))}
           </div>
-          <ColorInputs
-            handlePrev={handlePrev}
-            showPrev={showPrev}
-            isPrev={isPrev}
-            handleInputChange={handleInputChange}
-          />
         </div>
       </div>
     </>

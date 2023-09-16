@@ -1,4 +1,4 @@
-const ColorInputs = ({ handlePrev, showPrev, isPrev, handleInputChange }) => {
+const Nav = ({ handlePrev, showPrev, isPrev, handleInputChange }) => {
   return (
     <>
       <div className='inputContainer'>
@@ -18,4 +18,4 @@ const ColorInputs = ({ handlePrev, showPrev, isPrev, handleInputChange }) => {
     </>
   );
 };
-export default ColorInputs;
+export default Nav;
