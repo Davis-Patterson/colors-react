@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap");
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -21,7 +23,7 @@
 
 .darkMode {
   --clr-light: #313131;
-  --clr-dark: #323232;
+  --clr-dark: #838383;
   --clr-text: #23b8dd;
   --clr-break: #797979;
   --clr-accent: #bebebe6f;
@@ -62,7 +64,7 @@ h1 {
   line-height: 1.1;
 }
 
-button, input {
+input {
   border-radius: 8px;
   border: 1px solid var(--clr-light);
   padding: 0.5em 1em;
@@ -71,28 +73,17 @@ button, input {
   font-family: inherit;
   background-color: var(--clr-light);
   cursor: pointer;
-  transition: border-color 0.25s;
-  /* box-shadow: 0 1px 3px rgba(0, 0, 0, .4); */
   margin: 4px;
 }
-button:hover {
-  border-color: var(--clr-light);
-  background-color: var(--clr-accent);
-}
+
 input:hover {
   background-color: var(--clr-light);
   bortder-color: var(--clr-light);
 }
-button:active, input:active {
+input:active {
   transform: scale(99%);
   background-color: var(--clr-light);
   /* border: var(--clr-break); */
-}
-
-.locked {
-  background-color: transparent;
-  border: 1px solid var(--clr-light);
-  box-shadow: 0 0px 0px rgba(0, 0, 0, 0);
 }
 
 #root {
@@ -179,36 +170,16 @@ button:active, input:active {
   transform: scale(98%);
   transition: transform 0.2s;
 }
-
-.hueButton, .hueButton2 {
-  font-family: "Avant Garde", sans-serif;
-  font-size: .8em;
-  font-weight: 300;
-  color: var(--clr-light); 
-  border: 1px solid var(--clr-light); 
-  background-color: var(--clr-light);
-  width: 20px;
-  border-radius: 20px;
-  cursor: pointer;
-}
-.hueButton2 {
-  margin-bottom: 106px;
-}
-.hueButton:hover, .hueButton2:hover{
-  border-color: var(--clr-break);
-  background-color: var(--clr-accent);
-}
-.hueButton:active, .hueButton2:hover {
-  transform: scale(99%);
-  background-color: var(--clr-accent);
-  /* box-shadow: inset  0 2px 3px rgba(0, 0, 0, 0.5); */
-}
-
-button:disabled {
+.disabled {
   color: var(--clr-accent);
-  background-color: var(--clr-dark);
   opacity: 0.5;
   cursor: not-allowed;
+}
+.disabled:hover {
+  transform: scale(100%);
+}
+.disabled:active {
+  transform: scale(100%);
 }
 
 .numInput {
@@ -230,8 +201,8 @@ button:disabled {
   padding-left: 25px;
 }
 
-.lightInput {
-  transform: scale(220%);
+.lightInput, .darkInput {
+  transform: scale(180%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -245,43 +216,23 @@ button:disabled {
   padding-top: 2px;
   cursor: pointer;
 }
-.lightInput:hover {
-  transform: scale(250%);
+.lightInput:hover, .darkInput:hover {
+  transform: scale(195%);
   transition: transform 0.2s;
 }
-.lightInput:active {
-  transform: scale(215%);
+.lightInput:active, .darkInput:active {
+  transform: scale(175%);
   transition: transform 0.2s;
 }
-
-.darkInput {
-  transform: scale(160%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "Avant Garde", sans-serif;
-  font-size: 1em;
-  font-weight: 900;
-  line-height: .8;
-  color: var(--clr-text);
-  height: 40px;
-  border-radius: 0;
-  padding-top: 1px;
-  cursor: pointer;
+.lightInput::before {
+  content: '\2600';
+  display: inline-block;
+  font-family: Arial, sans-serif;
 }
-.darkInput:hover {
-  transform: scale(190%);
-  transition: transform 0.2s;
-}
-.darkInput:active {
-  transform: scale(140%);
-  transition: transform 0.2s;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.darkInput::before {
+  content: '\263C';
+  display: inline-block;
+  font-family: Arial, sans-serif;
 }
 
 .settingsContainer {
@@ -326,6 +277,39 @@ button:disabled {
   margin-bottom: 50%;
 }
 
+.hueButton, .settingsButton {
+  font-family: "Avant Garde", sans-serif;
+  font-size: 1.2em;
+  font-weight: 600;
+  color: var(--clr-light); 
+  width: 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 1px;
+}
+.settingsButton {
+  margin-bottom: 1px;
+  cursor: pointer;
+}
+.hueButton2 {
+  margin-bottom: 118px;
+  cursor: pointer;
+  color: var(--clr-light);
+}
+
+.lockButton {
+  padding: 0.5em 1em;
+  font-size: 1.5em;
+  font-weight: 500;
+  font-family: inherit;
+  color: var(--clr-light);
+  cursor: pointer;
+  /* background-size: cover; */
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 4px;
+}
+
 .textBox {
   display: flex;
   flex-direction: column;
@@ -339,7 +323,7 @@ button:disabled {
 .colorName {
   font-family: "Avant Garde", sans-serif;
   font-size: .8em;
-  font-weight: 300;
+  font-weight: 500;
   line-height: .8;
   color: var(--clr-light);
   width: 100%;

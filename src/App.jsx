@@ -77,6 +77,7 @@ function App() {
                 setIsPrev={setIsPrev}
                 setIsSettings={setIsSettings}
                 isSettings={isSettings}
+                isDarkMode={isDarkMode}
               />
             ))}
           </div>

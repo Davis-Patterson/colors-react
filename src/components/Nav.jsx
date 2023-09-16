@@ -1,6 +1,7 @@
 const Nav = ({
   handlePrev,
   showPrev,
+  isPrev,
   handleInputChange,
   handleDark,
   isDarkMode,
@@ -8,7 +9,10 @@ const Nav = ({
   return (
     <>
       <div className='navBar'>
-        <p className='backButton' onClick={handlePrev}>
+        <p
+          className={`backButton ${!isPrev && 'disabled'}`}
+          onClick={handlePrev}
+        >
           {showPrev ? 'CURRENT' : 'PREVIOUS'}
         </p>
         <input
@@ -23,9 +27,7 @@ const Nav = ({
         <p
           className={isDarkMode ? 'darkInput' : 'lightInput'}
           onClick={handleDark}
-        >
-          {isDarkMode ? '○' : '☼'}
-        </p>
+        ></p>
       </div>
     </>
   );
