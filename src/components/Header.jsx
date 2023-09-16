@@ -3,6 +3,9 @@ const Header = ({}) => {
     <>
       <header>
         <p className='colorsHeader'>Colors!</p>
+        <div className='loginContainer'>
+          <p className='loginHeader'>login</p>
+        </div>
       </header>
     </>
   );

@@ -1,10 +1,10 @@
-const Nav = ({ handlePrev, showPrev, isPrev, handleInputChange }) => {
+const Nav = ({ handlePrev, showPrev, handleInputChange, handleDark }) => {
   return (
     <>
-      <div className='inputContainer'>
-        <button className='backButton' onClick={handlePrev} disabled={!isPrev}>
+      <div className='navBar'>
+        <p className='backButton' onClick={handlePrev}>
           {showPrev ? 'CURRENT' : 'PREVIOUS'}
-        </button>
+        </p>
         <input
           type='number'
           className='numInput'
@@ -14,6 +14,9 @@ const Nav = ({ handlePrev, showPrev, isPrev, handleInputChange }) => {
           defaultValue={5}
           onChange={(e) => handleInputChange(parseInt(e.target.value, 10))}
         ></input>
+        <p className='darkInput' onClick={handleDark}>
+          ☼
+        </p>
       </div>
     </>
   );

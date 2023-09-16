@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from 'components/Header';
 import ColorCard from 'components/ColorCard';
+import Settings from 'components/Settings';
 import Nav from 'components/Nav';
 import './App.css';
 
@@ -9,6 +10,8 @@ function App() {
   const [showPrev, setShowPrev] = useState(false);
   const [isPrev, setIsPrev] = useState(false);
   const [numColors, setNumColors] = useState(5);
+  const [isSettings, setIsSettings] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   function getRandomColor() {
     return (
@@ -19,6 +22,17 @@ function App() {
     );
   }
 
+  useEffect(() => {
+    // Toggle the 'darkMode' class on the body based on the isDarkMode state
+    if (isDarkMode) {
+      document.body.classList.add('darkMode');
+      localStorage.setItem('darkMode', 'enabled');
+    } else {
+      document.body.classList.remove('darkMode');
+      localStorage.setItem('darkMode', 'disabled');
+    }
+  }, [isDarkMode]);
+
   const toggleColorChangeTrigger = () => {
     if (!showPrev) {
       setColorChangeTrigger(colorChangeTrigger + 1);
@@ -26,11 +40,17 @@ function App() {
   };
 
   const handlePrev = () => {
-    setShowPrev(!showPrev);
+    if (isPrev) {
+      setShowPrev(!showPrev);
+    }
   };
 
   const handleInputChange = (e) => {
     setNumColors(e);
+  };
+
+  const handleDark = () => {
+    setIsDarkMode(!isDarkMode);
   };
 
   return (
@@ -41,9 +61,10 @@ function App() {
         showPrev={showPrev}
         isPrev={isPrev}
         handleInputChange={handleInputChange}
+        handleDark={handleDark}
       />
       <div className='container'>
-        <div className='containerColumn'>
+        <div className='settingsContainer'>
           <div className='colorContainer'>
             {[...Array(numColors).keys()].map((index) => (
               <ColorCard
@@ -53,9 +74,12 @@ function App() {
                 toggleColorChangeTrigger={toggleColorChangeTrigger}
                 showPrev={showPrev}
                 setIsPrev={setIsPrev}
+                setIsSettings={setIsSettings}
+                isSettings={isSettings}
               />
             ))}
           </div>
+          {isSettings ? <Settings /> : null}
         </div>
       </div>
     </>

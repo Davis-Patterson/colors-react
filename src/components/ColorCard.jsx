@@ -6,6 +6,8 @@ const ColorCard = ({
   toggleColorChangeTrigger,
   showPrev,
   setIsPrev,
+  setIsSettings,
+  isSettings,
 }) => {
   const [randomColor, setRandomColor] = useState(getRandomColor());
   const [curColor, setCurColor] = useState(randomColor);
@@ -23,6 +25,11 @@ const ColorCard = ({
 
   const hueToggle = (event) => {
     setIsHues(!isHues);
+    event.stopPropagation();
+  };
+
+  const handleSetting = (event) => {
+    setIsSettings(!isSettings);
     event.stopPropagation();
   };
 
@@ -79,6 +86,13 @@ const ColorCard = ({
           onClick={toggleColorChangeTrigger}
         >
           <div className='textContainer'>
+            <p
+              className='hueButton'
+              style={{ color: curColor }}
+              onClick={(event) => handleSetting(event)}
+            >
+              ≣
+            </p>
             <p
               className='hueButton'
               style={{ color: curColor }}
