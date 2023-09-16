@@ -149,20 +149,22 @@ const ColorCard = ({
           onClick={toggleColorChangeTrigger}
         >
           <div className='textContainer'>
-            <p
-              className='settingsButton'
-              onClick={(event) => handleSetting(event)}
-            >
-              ≣
-            </p>
-            <p className='hueButton' onClick={(event) => hueToggle(event)}>
-              ↕
-            </p>
-            <p
-              className={`lockButton${isLocked ? ' locked' : ''}`}
-              onClick={(event) => handleButton(event)}
-              style={{ backgroundImage: `url(${svgUrl})` }}
-            ></p>
+            <div className='buttonBox'>
+              <p
+                className='settingsButton'
+                onClick={(event) => handleSetting(event)}
+              >
+                ≣
+              </p>
+              <p className='hueButton' onClick={(event) => hueToggle(event)}>
+                ↕
+              </p>
+              <p
+                className={isLocked ? 'lockButtonLocked' : 'lockButton'}
+                onClick={(event) => handleButton(event)}
+                style={{ backgroundImage: `url(${svgUrl})` }}
+              ></p>
+            </div>
             <div className='textBox'>
               <p className='colorName'>{colorName}</p>
               <p className='colorHex'>{curColor.slice(1).toUpperCase()}</p>

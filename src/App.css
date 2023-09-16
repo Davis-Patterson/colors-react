@@ -303,13 +303,28 @@ input:active {
 .hueButton {
   font-size: 1.5em;
 }
-.settingsButton {
-  font-size: 1.2em;
+.buttonBox .hueButton {
+  opacity: 0%;
+  transition: opacity 0.4s;
+}
+.buttonBox:hover .hueButton {
+  opacity: 100%;
+  transition: opacity 0.4s;
 }
 .settingsButton {
+  font-size: 1.2em;
   margin-bottom: 1px;
   cursor: pointer;
 }
+.buttonBox .settingsButton {
+  opacity: 0%;
+  transition: opacity 0.4s;
+}
+.buttonBox:hover .settingsButton {
+  opacity: 100%;
+  transition: opacity 0.4s;
+}
+
 .hueButton2 {
   font-family: "Avant Garde", sans-serif;
   font-weight: 600;
@@ -321,12 +336,35 @@ input:active {
 
 .lockButton {
   padding: 0.5em 1em;
-  font-size: 1.5em;
+  font-size: 1.2em;
   font-weight: 500;
   font-family: inherit;
   color: var(--clr-light);
   cursor: pointer;
   /* background-size: cover; */
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 4px;
+  transition: font-size 0.3s;
+}
+.buttonBox .lockButton {
+  opacity: 0%;
+  transition: opacity 0.4s;
+}
+.buttonBox:hover .lockButton {
+  opacity: 100%;
+  transition: opacity 0.4s;
+}
+
+.lockButtonLocked {
+  font-size: 1.5em;
+  transition: font-size 0.3s;
+  opacity: 100%;
+  padding: 0.5em 1em;
+  font-weight: 500;
+  font-family: inherit;
+  color: var(--clr-light);
+  cursor: pointer;
   background-repeat: no-repeat;
   background-position: center;
   margin: 4px;
