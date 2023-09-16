@@ -74,18 +74,18 @@ const ColorCard = ({
           onClick={toggleColorChangeTrigger}
         >
           <div className='textContainer'>
-            <div className='textBox'>
-              <p className='colorName'>{colorName}</p>
-              <p className='colorHex'>{curColor}</p>
-            </div>
-            <button
-              className={`colorButton ${isLocked && 'locked'}`}
-              onClick={(event) => handleButton(event)}
-            ></button>
             <button
               className='hueButton'
               onClick={(event) => hueToggle(event)}
             ></button>
+            <button
+              className={`colorButton ${isLocked && 'locked'}`}
+              onClick={(event) => handleButton(event)}
+            ></button>
+            <div className='textBox'>
+              <p className='colorName'>{colorName}</p>
+              <p className='colorHex'>{curColor.slice(1).toUpperCase()}</p>
+            </div>
           </div>
         </div>
       )}
