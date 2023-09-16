@@ -279,22 +279,29 @@ input:active {
 
 .hueButton, .settingsButton {
   font-family: "Avant Garde", sans-serif;
-  font-size: 1.2em;
   font-weight: 600;
   color: var(--clr-light); 
-  width: 20px;
-  border-radius: 20px;
   cursor: pointer;
   margin-top: 1px;
+}
+.hueButton {
+  font-size: 1.5em;
+}
+.settingsButton {
+  font-size: 1.2em;
 }
 .settingsButton {
   margin-bottom: 1px;
   cursor: pointer;
 }
 .hueButton2 {
-  margin-bottom: 118px;
-  cursor: pointer;
+  font-family: "Avant Garde", sans-serif;
+  font-weight: 600;
   color: var(--clr-light);
+
+  font-size: 1.5em;
+  margin-bottom: 112px;
+  cursor: pointer;
 }
 
 .lockButton {

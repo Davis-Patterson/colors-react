@@ -107,7 +107,7 @@ const ColorCard = ({
         >
           <div className='textContainer'>
             <p className='hueButton2' onClick={(event) => hueToggle(event)}>
-              H
+              ↕
             </p>
           </div>
         </div>
@@ -125,7 +125,7 @@ const ColorCard = ({
               ≣
             </p>
             <p className='hueButton' onClick={(event) => hueToggle(event)}>
-              H
+              ↕
             </p>
             <p
               className={`lockButton${isLocked ? ' locked' : ''}`}
