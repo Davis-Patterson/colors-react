@@ -2,7 +2,9 @@ const Header = ({}) => {
   return (
     <>
       <header>
-        <p className='colorsHeader'>Colors!</p>
+        <div className='colorsHeader'>
+          <p className='colorsText'>COLORS!</p>
+        </div>
         <div className='loginContainer'>
           <p className='loginHeader'>login</p>
         </div>
