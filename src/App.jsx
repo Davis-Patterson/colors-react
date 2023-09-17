@@ -26,10 +26,8 @@ function App() {
     // Toggle the 'darkMode' class on the body based on the isDarkMode state
     if (isDarkMode) {
       document.body.classList.add('darkMode');
-      localStorage.setItem('darkMode', 'enabled');
     } else {
       document.body.classList.remove('darkMode');
-      localStorage.setItem('darkMode', 'disabled');
     }
   }, [isDarkMode]);
 
@@ -52,6 +50,10 @@ function App() {
   const handleDark = () => {
     setIsDarkMode(!isDarkMode);
   };
+
+  useEffect(() => {
+    document.documentElement.style.setProperty('--num-color-boxes', numColors);
+  }, [numColors]);
 
   return (
     <>

@@ -128,15 +128,10 @@ const ColorCard = ({
     <>
       {isHues ? (
         <div className='colorsContainer'>
-          <div className='iconContainer'>
-            <p className='hueButton2' onClick={(event) => hueToggle(event)}>
-              ↕
-            </p>
-          </div>
           {huesArray.map((hue, index) => (
             <div
               key={index}
-              className='colorsBox'
+              className={`colorsBox ${hue === curColor && 'current'}`}
               style={{ backgroundColor: hue }}
               onClick={() => handleHueChange(hue)}
             ></div>

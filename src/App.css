@@ -263,8 +263,22 @@ input:active {
 
 .colorContainer {
   display: flex;
-  justify-content: space-around; /* Adjust as needed */
+  justify-content: space-around;
   width: 100%;
+}
+
+@media (max-width: 600px) {
+  .colorContainer {
+    flex-direction: column;
+  }
+
+  .colorBox {
+    height: calc(100vh / var(--num-color-boxes));
+  }
+
+  .textContainer {
+    margin-bottom: 0px;
+  }
 }
 
 .colorButton {
@@ -345,7 +359,7 @@ input:active {
   background-repeat: no-repeat;
   background-position: center;
   margin: 4px;
-  transition: font-size 0.3s;
+  transition: font-size 0.1s;
 }
 .buttonBox .lockButton {
   opacity: 0%;
@@ -358,7 +372,7 @@ input:active {
 
 .lockButtonLocked {
   font-size: 1.5em;
-  transition: font-size 0.3s;
+  transition: font-size 0.1s;
   opacity: 100%;
   padding: 0.5em 1em;
   font-weight: 500;
@@ -416,4 +430,9 @@ input:active {
   width: 100%;
   height: 5.264%;
   cursor: pointer;
+}
+
+.current {
+  border-top: 1px solid var(--clr-light);
+  border-bottom: 1px solid var(--clr-light);
 }
