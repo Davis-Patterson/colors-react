@@ -6,7 +6,8 @@ const Header = ({}) => {
           <p className='colorsText'>COLORS!</p>
         </div>
         <div className='loginContainer'>
-          <p className='loginHeader'>login</p>
+          <p className='loginHeader'>sign in</p>
+          <p className='signUp'>sign up</p>
         </div>
       </header>
     </>

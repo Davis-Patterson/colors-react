@@ -104,7 +104,7 @@ input:active {
   font-weight: 900;
   line-height: .8;
   color: var(--clr-text);
-  width: 100%;
+  width: 70%;
   margin: 0;
   margin-top: 28px;
   text-align: left;
@@ -121,6 +121,7 @@ input:active {
   justify-content: flex-end;
   align-items: right;
   position: relative;
+  width: 30%;
 }
 
 .loginHeader {
@@ -129,17 +130,16 @@ input:active {
   font-weight: 500;
   line-height: .8;
   color: var(--clr-text);
-  width: 100%;
+  width: 65px;
   margin: 0;
   margin-top: 19px;
   text-align: start;
   margin-right: 15px;
   cursor: pointer;
-  border-bottom: 1px solid var(--clr-text);
   margin-bottom: 5px;
   position: absolute;
   top: 10px;
-  right: 45px;
+  right: 68px;
 }
 .loginHeader:hover {
   transform: scale(105%);
@@ -149,6 +149,41 @@ input:active {
   transform: scale(98%);
   transition: transform 0.2s;
 }
+
+.signUp {
+  font-family: "Avant Garde", sans-serif;
+  font-size: 1.2em;
+  font-weight: 500;
+  line-height: .8;
+  color: var(--clr-light);
+  border: 1px solid var(--clr-text);
+  background-color: var(--clr-text);
+  border-radius: 5px;
+  padding: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 72px;
+  margin: 0;
+  margin-top: 19px;
+  text-align: start;
+  margin-right: 15px;
+  cursor: pointer;
+  margin-bottom: 5px;
+  position: absolute;
+  top: 5px;
+  right: 0px;
+}
+.signUp:hover {
+  transform: scale(105%);
+  transition: transform 0.2s;
+}
+.signUp:active {
+  transform: scale(98%);
+  transition: transform 0.2s;
+}
+
 .navBar {
   display: flex;
   justify-content: center;
@@ -161,7 +196,7 @@ input:active {
   justify-content: center;
   align-items: center;
   font-family: "Avant Garde", sans-serif;
-  font-size: 1em;
+  font-size: 1.5em;
   font-weight: 900;
   font-style: italic;
   line-height: .8;
@@ -171,6 +206,7 @@ input:active {
   border-radius: 0px;
   cursor: pointer;
   padding-right: 20px;
+  margin-top: 5px;
 }
 .backButton:hover {
   transform: scale(105%);
@@ -317,11 +353,11 @@ input:active {
 .hueButton {
   font-size: 1.5em;
 }
-.buttonBox .hueButton {
+.colorBox .hueButton {
   opacity: 0%;
   transition: opacity 0.4s;
 }
-.buttonBox:hover .hueButton {
+.colorBox:hover .hueButton {
   opacity: 100%;
   transition: opacity 0.4s;
 }
@@ -330,11 +366,11 @@ input:active {
   margin-bottom: 1px;
   cursor: pointer;
 }
-.buttonBox .settingsButton {
+.colorBox .settingsButton {
   opacity: 0%;
   transition: opacity 0.4s;
 }
-.buttonBox:hover .settingsButton {
+.colorBox:hover .settingsButton {
   opacity: 100%;
   transition: opacity 0.4s;
 }
@@ -361,11 +397,11 @@ input:active {
   margin: 4px;
   transition: font-size 0.1s;
 }
-.buttonBox .lockButton {
+.colorBox .lockButton {
   opacity: 0%;
   transition: opacity 0.4s;
 }
-.buttonBox:hover .lockButton {
+.colorBox:hover .lockButton {
   opacity: 100%;
   transition: opacity 0.4s;
 }

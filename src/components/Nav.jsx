@@ -19,7 +19,7 @@ const Nav = ({
           className={`backButton ${!isPrev && 'disabled'}`}
           onClick={handlePrev}
         >
-          {showPrev ? 'CURRENT' : 'PREVIOUS'}
+          {showPrev ? '⮕' : '⬅'}
         </p>
         <input
           type='number'
