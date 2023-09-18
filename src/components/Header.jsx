@@ -1,9 +1,15 @@
 const Header = ({}) => {
+  const handleHome = () => {
+    window.location.reload();
+  };
+
   return (
     <>
       <header>
         <div className='colorsHeader'>
-          <p className='colorsText'>COLORS!</p>
+          <p className='colorsText' onClick={handleHome}>
+            COLORS!
+          </p>
         </div>
         <div className='loginContainer'>
           <p className='loginHeader'>sign in</p>

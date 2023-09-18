@@ -1,14 +1,20 @@
 import React, { useState, useEffect } from 'react';
 
 const ColorCard = ({
+  index,
   getRandomColor,
   colorChangeTrigger,
   toggleColorChangeTrigger,
   showPrev,
+  isPrev,
   setIsPrev,
   setIsSettings,
   isSettings,
   isDarkMode,
+  selectedColorIndex,
+  setSelectedColorIndex,
+  hexCodeInput,
+  hexInputTrigger,
 }) => {
   const [randomColor, setRandomColor] = useState(getRandomColor());
   const [curColor, setCurColor] = useState(randomColor);
@@ -33,17 +39,20 @@ const ColorCard = ({
 
     var num = parseInt(col, 16);
 
-    var r = (num >> 16) + amt;
+    // var r = (num >> 16) + amt;
+    var r = Math.min(255, Math.max(0, (num >> 16) + amt));
 
     if (r > 255) r = 255;
     else if (r < 0) r = 0;
 
-    var b = ((num >> 8) & 0x00ff) + amt;
+    // var b = ((num >> 8) & 0x00ff) + amt;
+    var b = Math.min(255, Math.max(0, ((num >> 8) & 0x00ff) + amt));
 
     if (b > 255) b = 255;
     else if (b < 0) b = 0;
 
-    var g = (num & 0x0000ff) + amt;
+    // var g = (num & 0x0000ff) + amt;
+    var g = Math.min(255, Math.max(0, (num & 0x0000ff) + amt));
 
     if (g > 255) g = 255;
     else if (g < 0) g = 0;
@@ -92,19 +101,38 @@ const ColorCard = ({
   };
 
   const handleSetting = (event) => {
-    setIsSettings(!isSettings);
-    event.stopPropagation();
+    if (selectedColorIndex === index) {
+      setIsSettings(!isSettings);
+      setSelectedColorIndex(index);
+      event.stopPropagation();
+    } else if (selectedColorIndex === null) {
+      setIsSettings(true);
+      setSelectedColorIndex(index);
+      event.stopPropagation();
+    } else {
+      setSelectedColorIndex(index);
+      event.stopPropagation();
+    }
   };
 
   useEffect(() => {
     if (!isLocked) {
-      if (colorChangeTrigger) {
-        setPrevColor(randomColor);
-        setRandomColor(getRandomColor());
-        setIsPrev(true);
-      }
+      setPrevColor(curColor);
+      setRandomColor(getRandomColor());
+      setIsHues(false);
+    }
+    if (colorChangeTrigger !== 0) {
+      setIsPrev(true);
     }
   }, [colorChangeTrigger]);
+
+  useEffect(() => {
+    if (!isLocked) {
+      if (selectedColorIndex === index) {
+        setCurColor(hexCodeInput);
+      }
+    }
+  }, [hexInputTrigger]);
 
   useEffect(() => {
     if (!isLocked) {
@@ -113,16 +141,17 @@ const ColorCard = ({
       setColorName(nearestColor);
     }
   }, [curColor, colorChangeTrigger, showPrev]);
+  // consolidate into effect below
 
   useEffect(() => {
     if (!isLocked) {
       if (showPrev) {
         setCurColor(prevColor);
       } else {
-        setCurColor(randomColor);
+        setCurColor(randomColor); // problematic
       }
     }
-  });
+  }, [colorChangeTrigger, isPrev, showPrev]);
 
   return (
     <>
@@ -139,7 +168,9 @@ const ColorCard = ({
         </div>
       ) : (
         <div
-          className='colorBox'
+          className={`colorBox ${
+            isSettings && selectedColorIndex === index && 'activeBox'
+          }`}
           style={{ backgroundColor: curColor }}
           onClick={toggleColorChangeTrigger}
         >

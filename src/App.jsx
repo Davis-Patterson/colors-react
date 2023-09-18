@@ -7,11 +7,17 @@ import './App.css';
 
 function App() {
   const [colorChangeTrigger, setColorChangeTrigger] = useState(0);
+  const [hexInputTrigger, setHexInputTrigger] = useState(0);
   const [showPrev, setShowPrev] = useState(false);
   const [isPrev, setIsPrev] = useState(false);
   const [numColors, setNumColors] = useState(5);
   const [isSettings, setIsSettings] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [selectedColorIndex, setSelectedColorIndex] = useState(null);
+  const [hexCodeInput, setHexCodeInput] = useState('');
+  // is current = boolean
+  // pass setIsCurrent & isCurrent to button in nav bar & card, click to toggle boolean
+  // if state is false, read previous, if true read current
 
   function getRandomColor() {
     return (
@@ -23,7 +29,6 @@ function App() {
   }
 
   useEffect(() => {
-    // Toggle the 'darkMode' class on the body based on the isDarkMode state
     if (isDarkMode) {
       document.body.classList.add('darkMode');
     } else {
@@ -72,18 +77,32 @@ function App() {
             {[...Array(numColors).keys()].map((index) => (
               <ColorCard
                 key={index}
+                index={index}
                 getRandomColor={getRandomColor}
                 colorChangeTrigger={colorChangeTrigger}
                 toggleColorChangeTrigger={toggleColorChangeTrigger}
                 showPrev={showPrev}
+                isPrev={isPrev}
                 setIsPrev={setIsPrev}
                 setIsSettings={setIsSettings}
                 isSettings={isSettings}
                 isDarkMode={isDarkMode}
+                selectedColorIndex={selectedColorIndex}
+                setSelectedColorIndex={setSelectedColorIndex}
+                hexCodeInput={hexCodeInput}
+                hexInputTrigger={hexInputTrigger}
               />
             ))}
           </div>
-          {isSettings ? <Settings /> : null}
+          {isSettings ? (
+            <Settings
+              setIsSettings={setIsSettings}
+              hexCodeInput={hexCodeInput}
+              setHexCodeInput={setHexCodeInput}
+              hexInputTrigger={hexInputTrigger}
+              setHexInputTrigger={setHexInputTrigger}
+            />
+          ) : null}
         </div>
       </div>
     </>

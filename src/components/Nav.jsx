@@ -8,10 +8,6 @@ const Nav = ({
   colorTheory,
   setColorTheory,
 }) => {
-  const handleSelect = (e) => {
-    const value = e.target.value;
-    setColorTheory(value);
-  };
   return (
     <>
       <div className='navBar'>
